@@ -12,13 +12,13 @@ const coininfo = require('coininfo')
 const BITCOINJS_NETWORK_INFO = {
   actinium: coininfo.actinium.main.toBitcoinJS(),
   testnet: coininfo.actinium.test.toBitcoinJS(),
-  regtest: coininfo.actinium.regtest.toBitcoinJS(),
+  regtest: null,
   litecoin: coininfo.litecoin.main.toBitcoinJS(),
   litecoin_testnet: coininfo.litecoin.test.toBitcoinJS()
 }
-BITCOINJS_NETWORK_INFO.bitcoin.bech32 = 'acm'
+BITCOINJS_NETWORK_INFO.actinium.bech32 = 'acm'
 BITCOINJS_NETWORK_INFO.testnet.bech32 = 'tacm'
-BITCOINJS_NETWORK_INFO.regtest.bech32 = 'racm'
+// BITCOINJS_NETWORK_INFO.regtest.bech32 = 'racm'
 BITCOINJS_NETWORK_INFO.litecoin.bech32 = 'ltc'
 BITCOINJS_NETWORK_INFO.litecoin_testnet.bech32 = 'tltc'
 
