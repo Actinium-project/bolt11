@@ -5,25 +5,25 @@ const bech32 = require('bech32')
 const secp256k1 = require('secp256k1')
 const Buffer = require('safe-buffer').Buffer
 const BN = require('bn.js')
-const bitcoinjsAddress = require('bitcoinjs-lib/src/address')
+const bitcoinjsAddress = require('acmjs-lib/src/address')
 const cloneDeep = require('lodash/cloneDeep')
 const coininfo = require('coininfo')
 
 const BITCOINJS_NETWORK_INFO = {
-  bitcoin: coininfo.bitcoin.main.toBitcoinJS(),
-  testnet: coininfo.bitcoin.test.toBitcoinJS(),
-  regtest: coininfo.bitcoin.regtest.toBitcoinJS(),
+  actinium: coininfo.actinium.main.toBitcoinJS(),
+  testnet: coininfo.actinium.test.toBitcoinJS(),
+  regtest: coininfo.actinium.regtest.toBitcoinJS(),
   litecoin: coininfo.litecoin.main.toBitcoinJS(),
   litecoin_testnet: coininfo.litecoin.test.toBitcoinJS()
 }
-BITCOINJS_NETWORK_INFO.bitcoin.bech32 = 'bc'
-BITCOINJS_NETWORK_INFO.testnet.bech32 = 'tb'
-BITCOINJS_NETWORK_INFO.regtest.bech32 = 'bcrt'
+BITCOINJS_NETWORK_INFO.bitcoin.bech32 = 'acm'
+BITCOINJS_NETWORK_INFO.testnet.bech32 = 'tacm'
+BITCOINJS_NETWORK_INFO.regtest.bech32 = 'racm'
 BITCOINJS_NETWORK_INFO.litecoin.bech32 = 'ltc'
 BITCOINJS_NETWORK_INFO.litecoin_testnet.bech32 = 'tltc'
 
 // defaults for encode; default timestamp is current time at call
-const DEFAULTNETWORKSTRING = 'testnet'
+const DEFAULTNETWORKSTRING = 'actinium'
 const DEFAULTNETWORK = BITCOINJS_NETWORK_INFO[DEFAULTNETWORKSTRING]
 const DEFAULTEXPIRETIME = 3600
 const DEFAULTCLTVEXPIRY = 9
@@ -32,9 +32,9 @@ const DEFAULTDESCRIPTION = ''
 const VALIDWITNESSVERSIONS = [0]
 
 const BECH32CODES = {
-  bc: 'bitcoin',
-  tb: 'testnet',
-  bcrt: 'regtest',
+  acm: 'actinium',
+  tacm: 'testnet',
+  racm: 'regtest',
   ltc: 'litecoin',
   tltc: 'litecoin_testnet'
 }
